@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2563eb", // Electric Blue
+                        "accent": "#22c55e",  // Neon Green
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>AutoSystemAI - Innovación en IA</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">blur_on</span>
+<h2 class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">AutoSystemAI</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#inicio">Inicio</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#problema">Problemas</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#proceso">Proceso</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#nosotros">Por qué elegirnos</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center justify-center rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">
+                    Empezar
+                </button>
+<button class="md:hidden text-slate-900">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-white py-20 lg:py-32" id="inicio">
+<div class="absolute inset-0 -z-10 bg-[radial-gradient(45%_45%_at_50%_50%,#2563eb10_0%,transparent_100%)]"></div>
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+<div class="flex flex-col gap-8 text-left">
+<div class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-4 py-1 text-sm font-bold text-accent">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+</span>
+                        Líderes en Automatización
+                    </div>
+<h1 class="text-5xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
+                        Impulsa tu negocio con <span class="text-primary">IA Inteligente</span>
+</h1>
+<p class="text-lg leading-relaxed text-slate-600">
+                        Optimizamos tus procesos empresariales con soluciones de inteligencia artificial a medida. Reducción de costes y máxima eficiencia operativa.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="flex h-14 items-center justify-center rounded-xl bg-primary px-8 text-base font-bold text-white shadow-xl shadow-primary/20 hover:scale-105 transition-transform" data-modal-target="contactModal">
+                            Habla con un Experto
+                        </button>
+<button class="flex h-14 items-center justify-center rounded-xl border-2 border-slate-200 bg-white px-8 text-base font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                            Ver Servicios
+                        </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-accent opacity-20 blur group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative h-[400px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-2xl">
+<img alt="IA Visualización" class="h-full w-full object-cover" data-alt="Futuristic AI digital interface with glowing blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6yymB0mXye2fcezZnnY7mIdvt2FfpHSyofFmS2JGARZd2PUUPuw6GiGtofHS2aKeSniHUWAnH0Owsq7Qohsh0l7Z8PC_3M1ac4FSOlbcvGJ-Nk2EM_O6pqNU8VaNxcoLGSLIMr2u5nXxGqipi5t3NTuVkCJyru0pTHEjnvT_EQh-FCEdV5d7QKkGDd7mPACe9tVHJXNPnOGZtvwUtg1yF6D-jsCCalSaPy85S96QNNZWtAYRKUw0tTJxQn4ZZKBNaQPs4T5P7XjI"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="bg-slate-50 py-24" id="problema">
+<div class="mx-auto max-w-7xl px-6 text-center">
+<h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-4">El Desafío</h2>
+<h3 class="text-3xl font-black text-slate-900 md:text-4xl mb-16">¿Sientes que tu empresa se queda atrás?</h3>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+<div class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined text-3xl">timer_off</span>
+</div>
+<h4 class="mb-3 text-xl font-bold text-slate-900">Procesos Manuales</h4>
+<p class="text-slate-600">Pérdida de tiempo masiva en tareas repetitivas que no aportan valor real.</p>
+</div>
+<div class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-3xl">analytics</span>
+</div>
+<h4 class="mb-3 text-xl font-bold text-slate-900">Falta de Datos</h4>
+<p class="text-slate-600">Decisiones basadas en intuición en lugar de hechos y análisis predictivo.</p>
+</div>
+<div class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-primary">
+<span class="material-symbols-outlined text-3xl">trending_down</span>
+</div>
+<h4 class="mb-3 text-xl font-bold text-slate-900">Baja Escalabilidad</h4>
+<p class="text-slate-600">Dificultad para crecer sin aumentar proporcionalmente el gasto en personal.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24" id="servicios">
+<div class="mx-auto max-w-7xl px-6">
+<div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+<div class="max-w-2xl">
+<h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-4">Nuestros Servicios</h2>
+<h3 class="text-4xl font-black text-slate-900 leading-tight">Soluciones diseñadas para la nueva era digital</h3>
+</div>
+<button class="group flex items-center gap-2 font-bold text-primary">
+                    Ver todos los servicios <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+<div class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">smart_toy</span>
+<h4 class="text-lg font-bold mb-2">Chatbots IA</h4>
+<p class="text-sm text-slate-600">Atención al cliente 24/7 con capacidad de resolución compleja.</p>
+</div>
+<div class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">automation</span>
+<h4 class="text-lg font-bold mb-2">Workflows</h4>
+<p class="text-sm text-slate-600">Automatización de flujos de trabajo interconectados entre apps.</p>
+</div>
+<div class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">database</span>
+<h4 class="text-lg font-bold mb-2">Análisis de Datos</h4>
+<p class="text-sm text-slate-600">Modelos predictivos para anticiparse a las tendencias del mercado.</p>
+</div>
+<div class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">integration_instructions</span>
+<h4 class="text-lg font-bold mb-2">Integración API</h4>
+<p class="text-sm text-slate-600">Conectamos tus sistemas actuales con las mejores IAs del mercado.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4-Step Process -->
+<section class="bg-background-dark py-24 text-white" id="proceso">
+<div class="mx-auto max-w-7xl px-6">
+<div class="text-center mb-20">
+<h3 class="text-4xl font-black mb-4">Nuestro Proceso</h3>
+<p class="text-slate-400">Implementación ágil en 4 sencillos pasos</p>
+</div>
+<div class="grid grid-cols-1 gap-12 md:grid-cols-4">
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-3xl font-black">1</div>
+<h4 class="text-xl font-bold mb-2">Auditoría</h4>
+<p class="text-sm text-slate-400">Analizamos tus procesos actuales y detectamos cuellos de botella.</p>
+</div>
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-primary/30">2</div>
+<h4 class="text-xl font-bold mb-2">Diseño</h4>
+<p class="text-sm text-slate-400">Diseñamos una arquitectura de IA personalizada para tu empresa.</p>
+</div>
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-primary/30">3</div>
+<h4 class="text-xl font-bold mb-2">Despliegue</h4>
+<p class="text-sm text-slate-400">Implementamos la solución sin interrumpir tu operativa diaria.</p>
+</div>
+<div class="relative text-center">
+<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-primary/30">4</div>
+<h4 class="text-xl font-bold mb-2">Optimización</h4>
+<p class="text-sm text-slate-400">Monitoreo constante y ajustes para maximizar el retorno de inversión.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-24" id="nosotros">
+<div class="mx-auto max-w-7xl px-6">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="flex-1 space-y-8">
+<h3 class="text-4xl font-black text-slate-900 leading-tight">¿Por qué confiar en AutoSystemAI?</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-accent font-bold">check_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Experiencia Comprobada</h4>
+<p class="text-slate-600">Más de 50 proyectos exitosos de automatización en diversos sectores.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-accent font-bold">check_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Soporte Continuo</h4>
+<p class="text-slate-600">Equipo técnico dedicado con base en Sevilla, España.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-accent font-bold">check_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Enfoque en ROI</h4>
+<p class="text-slate-600">Nuestras soluciones están diseñadas para pagarse solas en menos de 6 meses.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4">
+<div class="rounded-2xl bg-primary/5 p-8 flex flex-col justify-center items-center text-center">
+<span class="text-4xl font-black text-primary mb-2">+40%</span>
+<p class="text-sm text-slate-600 font-medium">Ahorro en Operaciones</p>
+</div>
+<div class="mt-8 rounded-2xl bg-accent/5 p-8 flex flex-col justify-center items-center text-center">
+<span class="text-4xl font-black text-accent mb-2">24/7</span>
+<p class="text-sm text-slate-600 font-medium">Disponibilidad Total</p>
+</div>
+<div class="rounded-2xl bg-slate-100 p-8 flex flex-col justify-center items-center text-center">
+<span class="text-4xl font-black text-slate-900 mb-2">100%</span>
+<p class="text-sm text-slate-600 font-medium">Datos Seguros</p>
+</div>
+<div class="mt-8 rounded-2xl bg-primary/5 p-8 flex flex-col justify-center items-center text-center">
+<span class="text-4xl font-black text-primary mb-2">0</span>
+<p class="text-sm text-slate-600 font-medium">Errores Humanos</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mx-auto max-w-7xl px-6 py-12">
+<div class="relative overflow-hidden rounded-3xl bg-primary px-8 py-20 text-center shadow-2xl">
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 opacity-20">
+<span class="material-symbols-outlined text-[300px] text-white">hub</span>
+</div>
+<div class="relative z-10 mx-auto max-w-2xl">
+<h3 class="text-3xl font-black text-white md:text-5xl">¿Listo para transformar tu empresa?</h3>
+<p class="mt-6 text-lg text-blue-100">
+                    No dejes que la competencia tome la delantera. Únete a la revolución de la IA hoy mismo.
+                </p>
+<div class="mt-10 flex flex-wrap justify-center gap-4">
+<button class="rounded-xl bg-white px-8 py-4 text-base font-black text-primary hover:bg-slate-50 transition-colors shadow-lg" data-modal-target="contactModal">
+                        Habla con un Experto
+                    </button>
+<button class="rounded-xl border-2 border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur-sm hover:bg-white/20 transition-colors">
+                        Saber más
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-50 pt-20 pb-10 border-t border-slate-200">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-4 mb-16">
+<div class="space-y-6">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">blur_on</span>
+<h2 class="text-xl font-extrabold tracking-tight text-slate-900 uppercase">AutoSystemAI</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">
+                        Redefiniendo el futuro empresarial a través de la inteligencia artificial y la automatización inteligente.
+                    </p>
+<div class="flex gap-4">
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-primary transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-primary transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12.525.02c1.31-.032 2.623.019 3.921.019 1.42.039 2.844-.051 4.258.07 1.13.111 2.22.469 3.125 1.18.91.71 1.54 1.7 1.84 2.8.21.78.29 1.59.3 2.4.03 2.18.01 4.35.01 6.53 0 1.51-.01 3.02 0 4.52-.01 1.48-.15 2.97-.61 4.38-.6 1.81-1.92 3.32-3.7 3.91-.79.28-1.61.37-2.45.39-1.89.03-3.79.01-5.69.01-1.76 0-3.52 0-5.28-.01-1.32-.01-2.65-.12-3.95-.51-1.58-.45-2.92-1.5-3.77-2.93-.53-.89-.81-1.91-.91-2.93-.07-1.12-.03-2.25-.03-3.37V8.53c.01-1.36.08-2.73.53-4.04.53-1.54 1.62-2.84 3.09-3.51.81-.37 1.68-.53 2.56-.58 1.42-.11 2.85-.01 4.28-.02l.02.01zm-1.15 15.11c1.37.03 2.74.03 4.12 0 .97-.02 1.95-.12 2.9-.38.74-.2 1.39-.63 1.82-1.28.38-.57.56-1.25.62-1.93.07-1.3.04-2.61.04-3.91 0-1.21.01-2.41-.01-3.62-.02-1.02-.12-2.05-.51-2.99-.44-.97-1.26-1.73-2.26-2.06-.88-.29-1.8-.39-2.73-.41-1.32-.03-2.64-.03-3.96 0-.96.02-1.93.12-2.87.38-.72.2-1.36.62-1.78 1.25-.38.56-.55 1.22-.61 1.89-.07 1.34-.04 2.68-.04 4.02 0 1.18-.01 2.35.01 3.53.02 1.05.13 2.11.56 3.07.47.96 1.31 1.7 2.3 2.01.87.27 1.77.36 2.69.38.93.02 1.87.02 2.81.02z"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-slate-900 font-bold mb-6">Enlaces Rápidos</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Servicios IA</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Casos de Éxito</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog de Tecnología</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Precios</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 font-bold mb-6">Contacto</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            automan.systemai@gmail.com
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                            Sevilla, España
+                        </li>
+<li class="flex items-center gap-2" data-location="Sevilla, Spain">
+<span class="material-symbols-outlined text-primary text-lg">schedule</span>
+                            L-V: 9:00 - 18:00
+                        </li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 font-bold mb-6">Newsletter</h4>
+<p class="text-sm text-slate-500 mb-4">Suscríbete para recibir noticias sobre IA.</p>
+<div class="flex gap-2">
+<input class="w-full rounded-lg border-slate-200 bg-white px-4 py-2 text-sm focus:border-primary focus:ring-primary" placeholder="Tu email" type="email"/>
+<button class="rounded-lg bg-primary px-4 py-2 text-white">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-slate-200 text-sm text-slate-400">
+<p>© 2024 AutoSystemAI. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-slate-600" href="#">Privacidad</a>
+<a class="hover:text-slate-600" href="#">Términos</a>
+<a class="hover:text-slate-600" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-backdrop"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl mx-4 transform transition-all scale-95 opacity-0 modal-content">
+        <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition-colors close-modal">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <div class="mb-6 text-center">
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Habla con un Experto</h3>
+            <p class="text-slate-500 text-sm">Déjanos tus datos y nos pondremos en contacto contigo lo antes posible.</p>
+        </div>
+        
+        <form id="contactForm" class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Nombre</label>
+                    <input type="text" required class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="Tu nombre">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">Apellidos</label>
+                    <input type="text" required class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="Tus apellidos">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Teléfono</label>
+                <input type="tel" required class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="+34 600 000 000">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Correo Electrónico</label>
+                <input type="email" required class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="tu@email.com">
+            </div>
+            
+            <button type="submit" class="w-full mt-6 rounded-xl bg-primary px-8 py-3 text-base font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">
+                Enviar Solicitud
+            </button>
+        </form>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+</body></html>
