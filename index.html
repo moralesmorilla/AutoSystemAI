@@ -371,7 +371,24 @@
             
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-1">Correo Electrónico</label>
-                <input type="email" required class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="tu@email.com">
+                <input type="email" required id="contactEmail" name="email" class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="tu@email.com">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Motivo</label>
+                <select id="contactReason" name="reason" required class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors">
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Informacion">Información</option>
+                    <option value="Presupuesto">Presupuesto</option>
+                    <option value="Soporte">Soporte</option>
+                    <option value="Colaboracion">Colaboración</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div id="otherReasonContainer" class="hidden">
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Especifique otro motivo</label>
+                <input type="text" id="contactOtherReason" name="otherReason" class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-2 text-sm focus:border-primary focus:ring-primary focus:bg-white transition-colors" placeholder="Escriba el motivo aquí...">
             </div>
             
             <button type="submit" class="w-full mt-6 rounded-xl bg-primary px-8 py-3 text-base font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">

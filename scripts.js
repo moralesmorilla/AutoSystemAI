@@ -70,6 +70,24 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener('click', closeModal);
     });
 
+    // Handle Reason Dropdown
+    const reasonSelect = document.getElementById('contactReason');
+    const otherReasonContainer = document.getElementById('otherReasonContainer');
+    const otherReasonInput = document.getElementById('contactOtherReason');
+
+    if (reasonSelect && otherReasonContainer) {
+      reasonSelect.addEventListener('change', (e) => {
+        if (e.target.value === 'Otro') {
+          otherReasonContainer.classList.remove('hidden');
+          otherReasonInput.setAttribute('required', 'required');
+        } else {
+          otherReasonContainer.classList.add('hidden');
+          otherReasonInput.removeAttribute('required');
+          otherReasonInput.value = ''; // clean up the input
+        }
+      });
+    }
+
     // Handle Form Submission
     if (form) {
       form.addEventListener('submit', (e) => {
