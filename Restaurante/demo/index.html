@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoSystem — CRM & Reservas para Restaurantes</title>
+  <meta name="description" content="AutoSystem es el software de gestión de reservas y CRM para restaurantes. Gestiona mesas, clientes y estadísticas desde un solo lugar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="8" fill="#3B82F6"/>
+          <path d="M7 14C7 10.134 10.134 7 14 7s7 3.134 7 7-3.134 7-7 7-7-3.134-7-7z" fill="white" opacity=".3"/>
+          <path d="M14 10v4l2.5 2.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="sidebar-brand-text">
+        <span class="brand-name">AutoSystem</span>
+        <span class="brand-sub">Restaurante Demo</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">PRINCIPAL</div>
+      <a class="nav-item active" id="nav-dashboard" data-page="dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" id="nav-reservas" data-page="reservas">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Reservas</span>
+        <span class="nav-badge" id="badge-reservas">0</span>
+      </a>
+      <a class="nav-item" id="nav-clientes" data-page="clientes">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Clientes (CRM)</span>
+      </a>
+      <a class="nav-item" id="nav-mesas" data-page="mesas">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M3 12h18M3 19h18"/><rect x="7" y="8" width="10" height="8" rx="1"/></svg>
+        <span>Mesas</span>
+      </a>
+      <div class="nav-section-label">ANÁLISIS</div>
+      <a class="nav-item" id="nav-estadisticas" data-page="estadisticas">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>Estadísticas</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">R</div>
+        <div class="user-info">
+          <span class="user-name">Restaurante Demo</span>
+          <span class="user-role">Administrador</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content" id="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="topbar-breadcrumb">
+          <span id="page-title">Dashboard</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-date" id="topbar-date"></div>
+        <button class="btn btn-primary" id="btn-nueva-reserva">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nueva Reserva
+        </button>
+      </div>
+    </header>
+
+    <!-- PAGES -->
+
+    <!-- DASHBOARD PAGE -->
+    <section class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p class="page-subtitle">Resumen de hoy en tu restaurante</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card stat-blue">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-reservas-hoy">0</span>
+            <span class="stat-label">Reservas hoy</span>
+          </div>
+        </div>
+        <div class="stat-card stat-red">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-mesas-ocupadas">0</span>
+            <span class="stat-label">Mesas ocupadas</span>
+          </div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-mesas-libres">0</span>
+            <span class="stat-label">Mesas libres</span>
+          </div>
+        </div>
+        <div class="stat-card stat-purple">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-clientes-total">0</span>
+            <span class="stat-label">Clientes totales</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="card occupancy-card">
+          <div class="card-header">
+            <h3>Ocupación del restaurante</h3>
+            <span class="badge badge-info" id="occupancy-label">0%</span>
+          </div>
+          <div class="occupancy-bar-wrap">
+            <div class="occupancy-bar" id="occupancy-bar" style="width:0%"></div>
+          </div>
+          <p class="occupancy-text" id="occupancy-text">Calculando ocupación...</p>
+        </div>
+
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3>Reservas por hora</h3>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-horas" height="160"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Próximas reservas</h3>
+          <button class="btn btn-sm btn-outline" id="dash-ver-todas">Ver todas</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="table-proximas">
+            <thead>
+              <tr>
+                <th>Turno</th>
+                <th>Hora</th>
+                <th>Cliente</th>
+                <th>Personas</th>
+                <th>Mesa</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-proximas">
+              <tr><td colspan="6" class="empty-state">No hay reservas para hoy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVAS PAGE -->
+    <section class="page" id="page-reservas">
+      <div class="page-header">
+        <h1>Reservas</h1>
+        <p class="page-subtitle">Gestiona todas las reservas del restaurante</p>
+      </div>
+
+      <div class="reservas-controls">
+        <div class="date-nav">
+          <button class="btn btn-icon" id="btn-prev-day">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+          </button>
+          <span class="current-date" id="reservas-date-label"></span>
+          <button class="btn btn-icon" id="btn-next-day">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </button>
+        </div>
+        <div class="reservas-actions">
+          <input type="date" class="input" id="reservas-date-picker" />
+          
+          <div class="shift-toggles">
+            <button class="btn btn-sm btn-outline active" id="btn-turno-comida">Turno Comida</button>
+            <button class="btn btn-sm btn-outline" id="btn-turno-cena">Turno Cena</button>
+          </div>
+
+          <button class="btn btn-primary" id="btn-nueva-reserva-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nueva Reserva
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap calendar-wrap">
+          <table class="table calendar-table" id="reservas-calendar">
+            <thead id="calendar-head">
+            </thead>
+            <tbody id="calendar-body">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.5rem;">
+        <div class="card-header">
+          <h3>Lista de reservas</h3>
+          <div class="filter-group">
+            <div class="date-filter-wrap">
+              <input type="date" class="input input-sm" id="filter-fecha" title="Filtrar por fecha" />
+              <button class="btn btn-sm btn-outline" id="btn-mostrar-todas">Mostrar todas</button>
+            </div>
+            <select class="input input-sm" id="filter-estado">
+              <option value="">Todos los estados</option>
+              <option value="confirmada">Confirmadas</option>
+              <option value="cancelada">Canceladas</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="table-reservas">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Turno</th>
+                <th>Hora</th>
+                <th>Cliente</th>
+                <th>Teléfono</th>
+                <th>Personas</th>
+                <th>Mesa</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-reservas">
+              <tr><td colspan="9" class="empty-state">No hay reservas para esta fecha</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTES PAGE -->
+    <section class="page" id="page-clientes">
+      <div class="page-header">
+        <h1>Clientes (CRM)</h1>
+        <p class="page-subtitle">Gestiona tu base de clientes y su historial</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Base de clientes</h3>
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="input" id="search-clientes" placeholder="Buscar por nombre o teléfono..." />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="table-clientes">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Teléfono</th>
+                <th>Visitas</th>
+                <th>Última visita</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-clientes">
+              <tr><td colspan="6" class="empty-state">No hay clientes registrados</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESAS PAGE -->
+    <section class="page" id="page-mesas">
+      <div class="page-header">
+        <h1>Gestión de Mesas</h1>
+        <p class="page-subtitle">Configura las mesas de tu restaurante</p>
+      </div>
+
+      <div class="mesas-toolbar">
+        <button class="btn btn-primary" id="btn-add-mesa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Añadir Mesa
+        </button>
+        <div class="mesas-summary">
+          <span id="mesas-count">0 mesas configuradas</span>
+        </div>
+      </div>
+
+      <div class="mesas-grid" id="mesas-grid">
+      </div>
+    </section>
+
+    <!-- ESTADÍSTICAS PAGE -->
+    <section class="page" id="page-estadisticas">
+      <div class="page-header">
+        <h1>Estadísticas</h1>
+        <p class="page-subtitle">Análisis del rendimiento de tu restaurante</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card stat-blue">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="est-hoy">0</span>
+            <span class="stat-label">Reservas hoy</span>
+          </div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="est-semana">0</span>
+            <span class="stat-label">Reservas esta semana</span>
+          </div>
+        </div>
+        <div class="stat-card stat-purple">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="est-recurrentes">0</span>
+            <span class="stat-label">Clientes recurrentes</span>
+          </div>
+        </div>
+        <div class="stat-card stat-orange">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="est-total">0</span>
+            <span class="stat-label">Total reservas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3>Reservas por día (última semana)</h3>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-semana" height="180"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Mesas más utilizadas</h3>
+          </div>
+          <div id="mesas-ranking"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.5rem;">
+        <div class="card-header">
+          <h3>Clientes VIP (más visitas)</h3>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Posición</th>
+                <th>Cliente</th>
+                <th>Visitas</th>
+                <th>Última visita</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-vip">
+              <tr><td colspan="4" class="empty-state">No hay datos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: NUEVA / EDITAR RESERVA -->
+  <div class="modal-overlay" id="modal-reserva" role="dialog" aria-modal="true" aria-label="Nueva reserva">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-reserva-title">Nueva Reserva</h2>
+        <button class="modal-close" id="modal-reserva-close" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-reserva">
+          <input type="hidden" id="reserva-id" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reserva-cliente">Nombre del cliente *</label>
+              <input type="text" class="input" id="reserva-cliente" required placeholder="Ej: María García" />
+            </div>
+            <div class="form-group">
+              <label for="reserva-telefono">Teléfono *</label>
+              <input type="tel" class="input" id="reserva-telefono" required
+                     placeholder="Ej: 612345678"
+                     pattern="[0-9]{9}"
+                     maxlength="9"
+                     minlength="9"
+                     inputmode="numeric" />
+              <span class="field-error" id="error-telefono" style="display:none">El número de teléfono debe tener exactamente 9 dígitos.</span>
+            </div>
+            <div class="form-group">
+              <label for="reserva-personas">Número de personas *</label>
+              <input type="number" class="input" id="reserva-personas" min="1" max="20" required placeholder="Ej: 4" />
+            </div>
+            <div class="form-group">
+              <label for="reserva-fecha">Fecha *</label>
+              <input type="date" class="input" id="reserva-fecha" required />
+            </div>
+            <div class="form-group">
+              <label for="reserva-turno">Turno *</label>
+              <select class="input" id="reserva-turno" required>
+                <option value="comida">Comida (13:00 - 15:30)</option>
+                <option value="cena">Cena (20:00 - 22:30)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reserva-hora">Hora *</label>
+              <select class="input" id="reserva-hora" required>
+                <option value="">Selecciona una hora</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reserva-mesa">Mesa *</label>
+              <select class="input" id="reserva-mesa" required>
+                <option value="">Selecciona una mesa</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="reserva-notas">Notas</label>
+            <textarea class="input" id="reserva-notas" rows="3" placeholder="Alergias, preferencias especiales, ocasión especial..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="btn-cancel-reserva">Cancelar</button>
+        <button class="btn btn-primary" id="btn-save-reserva">Guardar Reserva</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: VER DETALLES RESERVA -->
+  <div class="modal-overlay" id="modal-detalle" role="dialog" aria-modal="true">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>Detalles de la Reserva</h2>
+        <button class="modal-close" id="modal-detalle-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-detalle-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" id="btn-cancel-reserva-detalle">Cancelar Reserva</button>
+        <button class="btn btn-danger" id="btn-delete-reserva-detalle" style="display:none">Eliminar</button>
+        <button class="btn btn-outline" id="btn-edit-reserva-detalle">Editar</button>
+        <button class="btn btn-primary" id="btn-close-detalle">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: VER CLIENTE -->
+  <div class="modal-overlay" id="modal-cliente" role="dialog" aria-modal="true">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>Perfil del Cliente</h2>
+        <button class="modal-close" id="modal-cliente-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-cliente-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-close-cliente">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: MESA -->
+  <div class="modal-overlay" id="modal-mesa" role="dialog" aria-modal="true">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2 id="modal-mesa-title">Añadir Mesa</h2>
+        <button class="modal-close" id="modal-mesa-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-mesa">
+          <input type="hidden" id="mesa-id" />
+          <div class="form-group">
+            <label for="mesa-nombre">Nombre de la mesa *</label>
+            <input type="text" class="input" id="mesa-nombre" required placeholder="Ej: Mesa 5, Terraza 1..." />
+          </div>
+          <div class="form-group">
+            <label for="mesa-capacidad">Capacidad (personas) *</label>
+            <input type="number" class="input" id="mesa-capacidad" min="1" max="20" required placeholder="Ej: 4" />
+          </div>
+          <div class="form-group">
+            <label for="mesa-zona">Zona</label>
+            <select class="input" id="mesa-zona">
+              <option value="interior">Interior</option>
+              <option value="exterior">Exterior / Terraza</option>
+              <option value="privada">Sala privada</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="btn-cancel-mesa">Cancelar</button>
+        <button class="btn btn-primary" id="btn-save-mesa">Guardar Mesa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

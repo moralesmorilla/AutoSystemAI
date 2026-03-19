@@ -90,17 +90,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle Form Submission
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        // Here you would typically send the data to a server/webhook
+        
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.textContent;
         
         btn.textContent = '¡Enviando...!';
         btn.classList.add('opacity-80', 'cursor-not-allowed');
-        
-        // Simulating API call
-        setTimeout(() => {
+        btn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+          const urlEncodedData = new URLSearchParams(formData);
+          
+          const webhookUrl = "https://automan-project-n8n.zcry4s.easypanel.host/webhook-test/d4ff8a76-f7c6-4c4c-889e-1ed6b5c0d85f";
+          
+          // Enviamos los datos como application/x-www-form-urlencoded
+          await fetch(webhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: urlEncodedData
+          });
+
+          // Al usar mode: 'no-cors', evitamos errores de CORS previniendo validar la respuesta.
           btn.textContent = '¡Solicitud Enviada!';
           btn.classList.remove('bg-primary');
           btn.classList.add('bg-green-500');
@@ -113,9 +126,23 @@ document.addEventListener("DOMContentLoaded", () => {
               btn.textContent = originalText;
               btn.classList.add('bg-primary');
               btn.classList.remove('bg-green-500', 'opacity-80', 'cursor-not-allowed');
+              btn.disabled = false;
             }, 300);
           }, 1500);
-        }, 1000);
+
+        } catch (error) {
+          console.error("Error al enviar el formulario:", error);
+          btn.textContent = '¡Error al enviar!';
+          btn.classList.remove('bg-primary');
+          btn.classList.add('bg-red-500');
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.add('bg-primary');
+            btn.classList.remove('bg-red-500', 'opacity-80', 'cursor-not-allowed');
+            btn.disabled = false;
+          }, 3000);
+        }
       });
     }
   }
