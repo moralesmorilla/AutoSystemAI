@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 0. Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+      if (icon) icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+    });
+  }
+
+  // 0b. Active Nav Link (current page)
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && (href === currentPage || href.startsWith(currentPage.replace('.html','')))) {
+      link.classList.add('text-white', 'bg-white/10');
+      link.classList.remove('text-slate-300');
+    }
+  });
+
   // 1. Prevent default behavior on empty links
   document.querySelectorAll('a[href="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
