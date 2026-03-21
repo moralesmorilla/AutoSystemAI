@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Cookies - AM System AI</title>
+    <link rel="icon" type="image/png" href="assets/images/FotoPerfil.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#2563eb", accent: "#22c55e", "background-dark": "#0a0a0f" },
+                    fontFamily: { "display": ["Public Sans", "sans-serif"] }
+                }
+            }
+        }
+    </script>
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background-dark font-display text-white antialiased">
+    <header id="site-header"></header>
+
+    <main class="mx-auto max-w-3xl px-6 py-24">
+        <h1 class="text-4xl font-black text-white mb-4">Política de Cookies</h1>
+        <p class="text-slate-400 mb-12 text-sm">Última actualización: 21 de marzo de 2026</p>
+
+        <div class="space-y-10 text-slate-300 leading-relaxed">
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">¿Qué son las cookies?</h2>
+                <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu navegador cuando los visitas. Permiten que el sitio recuerde tus preferencias y mejorar tu experiencia de navegación.</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">Cookies que utilizamos</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="text-left py-3 pr-4 text-white font-bold">Cookie</th>
+                                <th class="text-left py-3 pr-4 text-white font-bold">Tipo</th>
+                                <th class="text-left py-3 text-white font-bold">Finalidad</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-400">
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-mono text-xs">am_cookies_accepted</td>
+                                <td class="py-3 pr-4">Técnica</td>
+                                <td class="py-3">Guarda tu preferencia de cookies para no mostrar el banner cada vez.</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-mono text-xs">_ga, _gid</td>
+                                <td class="py-3 pr-4">Analítica</td>
+                                <td class="py-3">Google Analytics — anónimas, miden el uso del sitio para mejorarlo.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">Cómo gestionar las cookies</h2>
+                <p class="mb-4">Puedes retirar tu consentimiento y eliminar las cookies en cualquier momento desde la configuración de tu navegador:</p>
+                <ul class="list-disc list-inside space-y-2 text-slate-400 text-sm">
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" class="text-accent hover:underline">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-" target="_blank" class="text-accent hover:underline">Mozilla Firefox</a></li>
+                    <li><a href="https://support.microsoft.com/es-es/microsoft-edge" target="_blank" class="text-accent hover:underline">Microsoft Edge</a></li>
+                    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" class="text-accent hover:underline">Apple Safari</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">Más información</h2>
+                <p>Para cualquier consulta sobre el uso de cookies, contacta con nosotros en <a href="mailto:automan.systemai@gmail.com" class="text-accent hover:underline">automan.systemai@gmail.com</a>.</p>
+            </section>
+
+            <div>
+                <button onclick="localStorage.removeItem('am_cookies_accepted'); location.reload();"
+                    class="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white hover:bg-green-500 transition-all">
+                    <span class="material-symbols-outlined text-base">refresh</span>
+                    Restablecer mis preferencias de cookies
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="js/components.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
