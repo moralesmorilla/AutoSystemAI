@@ -62,7 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (targetModal) {
           targetModal.classList.remove('hidden');
           // Small delay to allow display block to process before changing opacity/scale
-          setTimeout(() => body.classList.add('modal-open'), 10);
+          setTimeout(() => {
+            body.classList.add('modal-open');
+            targetModal.classList.add('modal-active');
+          }, 10);
 
           // Si es el modal de video, reproducir automáticamente
           if (targetId === 'videoModal') {
@@ -80,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!modalToClose) return;
 
       body.classList.remove('modal-open');
+      modalToClose.classList.remove('modal-active');
       
       // Si es el modal de video, pausar
       if (modalToClose.id === 'videoModal') {
