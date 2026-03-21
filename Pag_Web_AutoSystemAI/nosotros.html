@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Por qué elegirnos - AM System AI</title>
+    <meta name="description" content="Descubre por qué más de 50 empresas confían en AM System AI para su transformación digital con inteligencia artificial." />
+    <link rel="icon" type="image/png" href="assets/images/FotoPerfil.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#2563eb", accent: "#22c55e", "background-dark": "#0a0a0f" },
+                    fontFamily: { "display": ["Public Sans", "sans-serif"] }
+                }
+            }
+        }
+    </script>
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background-dark font-display text-white antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-lg border-b border-white/5">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+            <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                <img src="assets/images/FotoPerfil.png" alt="AM System AI" class="h-10 w-10 object-cover rounded-full shadow-md border-2 border-accent/30" />
+                <span class="text-lg font-black tracking-tight text-white uppercase hidden sm:block">AM System AI</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-1">
+                <a class="px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all" href="index.html">Inicio</a>
+                <a class="px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all" href="servicios.html">Servicios</a>
+                <a class="px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all" href="demos.html">Demostraciones</a>
+                <a class="px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all" href="proceso.html">Proceso</a>
+                <a class="px-4 py-2.5 text-sm font-semibold text-white bg-white/10 rounded-xl" href="nosotros.html">Por qué elegirnos</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="hidden sm:flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-accent/30 hover:scale-105 hover:bg-green-500 transition-all">
+                    <span class="material-symbols-outlined text-base">rocket_launch</span> Empezar
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-all">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="mx-auto max-w-7xl px-6 text-center relative z-10">
+            <div class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-4 py-2 border border-accent/20 text-sm font-bold text-accent mb-8">
+                <span class="material-symbols-outlined text-base">verified</span>
+                Por qué elegirnos
+            </div>
+            <h1 class="text-5xl font-black text-white md:text-7xl tracking-tight mb-6">
+                No somos otra <br class="hidden md:block"/>agencia de IA. <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Somos tu equipo</span>.
+            </h1>
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto">Trabajamos como una extensión de tu empresa, no como un proveedor externo. Tus objetivos son nuestros objetivos.</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="relative py-16 border-t border-white/5 bg-slate-900">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-black text-accent mb-2">+50</div>
+                    <p class="text-slate-400 text-sm">Proyectos completados</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-black text-accent mb-2">+40%</div>
+                    <p class="text-slate-400 text-sm">Ahorro operativo medio</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-black text-accent mb-2">24/7</div>
+                    <p class="text-slate-400 text-sm">Soporte y monitorización</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-black text-accent mb-2">&lt;6m</div>
+                    <p class="text-slate-400 text-sm">ROI positivo garantizado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiators -->
+    <section class="relative py-24 border-t border-white/5">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group rounded-3xl bg-slate-900/60 border border-white/5 p-10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent text-3xl">psychology</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Experiencia Técnica Real</h3>
+                    <p class="text-slate-400 leading-relaxed">Nuestro equipo tiene experiencia directa implementando soluciones con OpenAI, Google Gemini, n8n, LangChain y los frameworks más avanzados del sector. No subcontratamos.</p>
+                </div>
+                <div class="group rounded-3xl bg-slate-900/60 border border-white/5 p-10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent text-3xl">location_on</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Equipo Local en España</h3>
+                    <p class="text-slate-400 leading-relaxed">Con base en Sevilla, trabajamos en tu mismo horario, hablamos tu idioma y podemos reunirnos en persona cuando lo necesites. Sin barreras culturales ni de zona horaria.</p>
+                </div>
+                <div class="group rounded-3xl bg-slate-900/60 border border-white/5 p-10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent text-3xl">trending_up</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Enfocados en ROI</h3>
+                    <p class="text-slate-400 leading-relaxed">Medimos todo. Definimos KPIs desde el día 1 y te reportamos semanalmente el impacto real en tu negocio. Si no generamos valor, lo arreglamos hasta que lo hagamos.</p>
+                </div>
+                <div class="group rounded-3xl bg-slate-900/60 border border-white/5 p-10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent text-3xl">lock</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Datos 100% Seguros</h3>
+                    <p class="text-slate-400 leading-relaxed">Cumplimos estrictamente con el RGPD. Tus datos nunca se usan para entrenar modelos externos. Puedes elegir dónde se aloja tu solución: cloud o en tus propios servidores.</p>
+                </div>
+                <div class="group rounded-3xl bg-slate-900/60 border border-white/5 p-10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent text-3xl">support_agent</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Soporte Post-lanzamiento</h3>
+                    <p class="text-slate-400 leading-relaxed">No desaparecemos cuando el proyecto termina. ofrecemos mantenimiento continuo, actualizaciones de modelos y soporte técnico prioritario incluido en todos los planes.</p>
+                </div>
+                <div class="group rounded-3xl bg-slate-900/60 border border-white/5 p-10 hover:border-accent/30 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent text-3xl">flash_on</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Implementación Rápida</h3>
+                    <p class="text-slate-400 leading-relaxed">Nuestro proceso ágil nos permite tener tu primera solución en producción en cuestión de semanas, no meses. Resultados rápidos, sin sacrificar la calidad técnica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-24 border-t border-white/5 bg-slate-900">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="mx-auto max-w-3xl px-6 text-center">
+            <h2 class="text-4xl font-black text-white mb-6">Únete a los que ya están creciendo</h2>
+            <p class="text-xl text-slate-300 mb-10">Hablamos, analizamos tu caso y te decimos con honestidad si podemos ayudarte. Sin compromiso.</p>
+            <a href="index.html" class="inline-flex items-center gap-2 rounded-2xl bg-accent px-10 py-5 text-lg font-black text-white hover:bg-green-500 transition-all shadow-[0_0_40px_rgba(34,197,94,0.3)] hover:shadow-[0_0_60px_rgba(34,197,94,0.5)] hover:scale-105">
+                Reservar llamada gratuita <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

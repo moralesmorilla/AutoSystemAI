@@ -28,6 +28,14 @@
                         "display": ["Public Sans", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    animation: {
+                        "shimmer": "shimmer 2s infinite",
+                    },
+                    keyframes: {
+                        shimmer: {
+                            "100%": { transform: "translateX(100%)" },
+                        }
+                    }
                 },
             },
         }
@@ -39,165 +47,193 @@
 
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
     <!-- Top Navigation Bar -->
-    <header
-        class="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-background-dark/80">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <div class="flex items-center gap-3">
+    <header class="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-lg border-b border-white/5">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
                 <img src="assets/images/FotoPerfil.png" alt="AM System AI"
-                    class="h-10 w-10 sm:h-12 sm:w-12 object-cover rounded-full shadow-md" />
-                <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">AM
-                    System AI</h2>
-            </div>
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
-                    href="#inicio">Inicio</a>
-                <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
-                    href="#problema">Problemas</a>
-                <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
-                    href="#servicios">Servicios</a>
-                <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
-                    href="#demostraciones">Demostraciones</a>
-                <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
-                    href="#proceso">Proceso</a>
-                <a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors"
-                    href="#nosotros">Por qué elegirnos</a>
+                    class="h-10 w-10 object-cover rounded-full shadow-md border-2 border-accent/30" />
+                <span class="text-lg font-black tracking-tight text-white uppercase hidden sm:block">AM
+                    System AI</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-1">
+                <a class="nav-link relative px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="index.html#inicio">Inicio</a>
+                <a class="nav-link relative px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="servicios.html">Servicios</a>
+                <a class="nav-link relative px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="demos.html">Demostraciones</a>
+                <a class="nav-link relative px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="proceso.html">Proceso</a>
+                <a class="nav-link relative px-4 py-2.5 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="nosotros.html">Por qué elegirnos</a>
             </nav>
-            <div class="flex items-center gap-4">
+
+            <div class="flex items-center gap-3">
                 <button
-                    class="hidden sm:flex items-center justify-center rounded-xl bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all"
+                    class="hidden sm:flex items-center gap-2 justify-center rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-accent/30 hover:scale-105 hover:bg-green-500 transition-all"
                     data-modal-target="contactModal">
+                    <span class="material-symbols-outlined text-base">rocket_launch</span>
                     Empezar
                 </button>
-                <button class="md:hidden text-slate-900">
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-all">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-white/5 px-6 py-4">
+            <nav class="flex flex-col gap-1">
+                <a class="px-4 py-3 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="index.html#inicio">Inicio</a>
+                <a class="px-4 py-3 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="servicios.html">Servicios</a>
+                <a class="px-4 py-3 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="demos.html">Demostraciones</a>
+                <a class="px-4 py-3 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="proceso.html">Proceso</a>
+                <a class="px-4 py-3 text-sm font-semibold text-slate-300 rounded-xl hover:text-white hover:bg-white/5 transition-all"
+                    href="nosotros.html">Por qué elegirnos</a>
+                <button
+                    class="mt-2 w-full flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-bold text-white"
+                    data-modal-target="contactModal">
+                    <span class="material-symbols-outlined text-base">rocket_launch</span>
+                    Empezar
+                </button>
+            </nav>
+        </div>
     </header>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-white py-20 lg:py-32" id="inicio">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(45%_45%_at_50%_50%,#2563eb10_0%,transparent_100%)]">
-        </div>
-        <div class="mx-auto max-w-7xl px-6">
+    <section class="relative overflow-hidden bg-background-dark py-20 lg:py-32" id="inicio">
+        <!-- Grid pattern background -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+        <!-- Animated glowing blob -->
+        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] animate-pulse pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="mx-auto max-w-7xl px-6 relative z-10">
             <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-                <div class="flex flex-col gap-8 text-left">
+                <div class="flex flex-col gap-8 text-left z-10">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-4 py-1 text-sm font-bold text-accent">
+                        class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-4 py-2 border border-accent/20 text-sm font-bold text-accent shadow-sm shadow-accent/10">
                         <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                         </span>
                         Líderes en Automatización
                     </div>
-                    <h1 class="text-5xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
-                        Automatiza tu negocio con IA y consigue más clientes en <span class="text-primary">piloto automático</span>
+                    <h1 class="text-5xl font-black leading-tight tracking-tight text-white md:text-[4rem] lg:leading-[1.1]">
+                        Automatiza tu negocio con IA y consigue más clientes en <br class="hidden md:block"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">piloto automático</span>
                     </h1>
-                    <p class="text-lg leading-relaxed text-slate-600">
-                        Creamos agentes de inteligencia artificial que responden a tus clientes 24/7, generan leads y automatizan procesos para que ahorres tiempo y aumentes tus ingresos.
+                    <p class="text-xl leading-relaxed text-slate-300">
+                        Creamos agentes de inteligencia artificial que responden a tus clientes 24/7, generan leads y
+                        automatizan procesos para que ahorres tiempo y aumentes tus ingresos.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-wrap gap-4 mt-4">
                         <button
-                            class="flex h-14 items-center justify-center rounded-xl bg-primary px-8 text-base font-bold text-white shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
+                            class="relative overflow-hidden rounded-2xl bg-accent px-8 h-14 text-base font-black text-white hover:bg-green-500 focus:ring-4 focus:ring-accent/50 transition-all duration-300 group/btn shadow-[0_0_30px_rgba(34,197,94,0.3)] hover:shadow-[0_0_50px_rgba(34,197,94,0.5)] hover:-translate-y-1"
                             data-modal-target="contactModal">
-                            Habla con un Experto
+                            <span class="relative z-10 flex items-center gap-2">Habla con un Experto <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span></span>
                         </button>
                         <a href="#demostraciones"
-                            class="flex h-14 items-center justify-center rounded-xl border-2 border-slate-200 bg-white px-8 text-base font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                            class="flex h-14 items-center justify-center rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md px-8 text-base font-bold text-white hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
                             Ver Demostraciones
                         </a>
                     </div>
                 </div>
-                <div class="relative group">
-                    <div
-                        class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-accent opacity-20 blur group-hover:opacity-30 transition duration-1000">
-                    </div>
-                    <div
-                        class="relative h-[400px] w-full overflow-hidden rounded-2xl shadow-2xl bg-white border border-slate-100">
-                        <img alt="AM System AI Visualización" class="h-full w-full object-cover"
-                            src="assets/images/FotoPaginaWeb.png" />
+                
+                <div class="relative group/card perspective-1000 z-10">
+                    <!-- Glassmorphism Card Wrapper around Image -->
+                    <div class="relative overflow-hidden rounded-[2rem] bg-slate-900/40 backdrop-blur-xl border border-white/10 p-2 shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(34,197,94,0.15)] group-hover/card:bg-slate-900/60">
+                        
+                        <!-- Inner Animated Shine -->
+                        <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover/card:animate-shimmer pointer-events-none z-30"></div>
+                        
+                        <!-- Main Image Container -->
+                        <div class="relative h-[400px] w-full overflow-hidden rounded-[1.75rem] shadow-inner bg-slate-950">
+                            <img alt="AM System AI Visualización" class="h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover/card:scale-105"
+                                src="assets/images/FotoPaginaWeb.png" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Problem Section -->
-    <section class="bg-slate-50 py-24" id="problema">
-        <div class="mx-auto max-w-7xl px-6 text-center">
+    <section class="relative bg-slate-900 py-24 overflow-hidden" id="problema">
+        <!-- Top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+        <div class="mx-auto max-w-7xl px-6 text-center relative z-10">
             <h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-4">El Desafío</h2>
-            <h3 class="text-3xl font-black text-slate-900 md:text-4xl mb-16">¿Sientes que tu empresa se queda atrás?
-            </h3>
+            <h3 class="text-3xl font-black text-white md:text-4xl mb-16">¿Sientes que tu empresa se queda atrás?</h3>
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                <div
-                    class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-red-600">
+                <div class="group flex flex-col items-center rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-white/5 p-8 hover:border-accent/30 hover:bg-slate-800/60 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent border border-accent/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300">
                         <span class="material-symbols-outlined text-3xl">timer_off</span>
                     </div>
-                    <h4 class="mb-3 text-xl font-bold text-slate-900">Procesos Manuales</h4>
-                    <p class="text-slate-600">Pérdida de tiempo masiva en tareas repetitivas que no aportan valor real.
-                    </p>
+                    <h4 class="mb-3 text-xl font-bold text-white">Procesos Manuales</h4>
+                    <p class="text-slate-400">Pérdida de tiempo masiva en tareas repetitivas que no aportan valor real.</p>
                 </div>
-                <div
-                    class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div
-                        class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+                <div class="group flex flex-col items-center rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-white/5 p-8 hover:border-accent/30 hover:bg-slate-800/60 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent border border-accent/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300">
                         <span class="material-symbols-outlined text-3xl">analytics</span>
                     </div>
-                    <h4 class="mb-3 text-xl font-bold text-slate-900">Falta de Datos</h4>
-                    <p class="text-slate-600">Decisiones basadas en intuición en lugar de hechos y análisis predictivo.
-                    </p>
+                    <h4 class="mb-3 text-xl font-bold text-white">Falta de Datos</h4>
+                    <p class="text-slate-400">Decisiones basadas en intuición en lugar de hechos y análisis predictivo.</p>
                 </div>
-                <div
-                    class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-primary">
+                <div class="group flex flex-col items-center rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-white/5 p-8 hover:border-accent/30 hover:bg-slate-800/60 hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent border border-accent/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300">
                         <span class="material-symbols-outlined text-3xl">trending_down</span>
                     </div>
-                    <h4 class="mb-3 text-xl font-bold text-slate-900">Baja Escalabilidad</h4>
-                    <p class="text-slate-600">Dificultad para crecer sin aumentar proporcionalmente el gasto en
-                        personal.</p>
+                    <h4 class="mb-3 text-xl font-bold text-white">Baja Escalabilidad</h4>
+                    <p class="text-slate-400">Dificultad para crecer sin aumentar proporcionalmente el gasto en personal.</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Services Section -->
-    <section class="py-24" id="servicios">
+    <section class="relative py-24 bg-background-dark" id="servicios">
+        <!-- Top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="mx-auto max-w-7xl px-6">
             <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                 <div class="max-w-2xl">
-                    <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-4">Nuestros Servicios</h2>
-                    <h3 class="text-4xl font-black text-slate-900 leading-tight">Soluciones diseñadas para la nueva era
-                        digital</h3>
+                    <h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-4">Nuestros Servicios</h2>
+                    <h3 class="text-4xl font-black text-white leading-tight">Soluciones diseñadas para la nueva era digital</h3>
                 </div>
-                <button class="group flex items-center gap-2 font-bold text-primary">
-                    Ver todos los servicios <span
-                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </button>
             </div>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                <div
-                    class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">smart_toy</span>
-                    <h4 class="text-lg font-bold mb-2">Chatbots IA</h4>
-                    <p class="text-sm text-slate-600">Atención al cliente 24/7 con capacidad de resolución compleja.</p>
+                <div class="group relative rounded-2xl bg-slate-900/60 border border-white/5 p-6 overflow-hidden hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] transition-all duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <span class="material-symbols-outlined text-accent mb-4 text-4xl relative z-10 group-hover:scale-110 transition-transform inline-block">smart_toy</span>
+                    <h4 class="text-lg font-bold mb-2 text-white relative z-10">Chatbots IA</h4>
+                    <p class="text-sm text-slate-400 relative z-10">Atención al cliente 24/7 con capacidad de resolución compleja.</p>
                 </div>
-                <div
-                    class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">automation</span>
-                    <h4 class="text-lg font-bold mb-2">Workflows</h4>
-                    <p class="text-sm text-slate-600">Automatización de flujos de trabajo interconectados entre apps.
-                    </p>
+                <div class="group relative rounded-2xl bg-slate-900/60 border border-white/5 p-6 overflow-hidden hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] transition-all duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <span class="material-symbols-outlined text-accent mb-4 text-4xl relative z-10 group-hover:scale-110 transition-transform inline-block">automation</span>
+                    <h4 class="text-lg font-bold mb-2 text-white relative z-10">Workflows</h4>
+                    <p class="text-sm text-slate-400 relative z-10">Automatización de flujos de trabajo interconectados entre apps.</p>
                 </div>
-                <div
-                    class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">database</span>
-                    <h4 class="text-lg font-bold mb-2">Análisis de Datos</h4>
-                    <p class="text-sm text-slate-600">Modelos predictivos para anticiparse a las tendencias del mercado.
-                    </p>
+                <div class="group relative rounded-2xl bg-slate-900/60 border border-white/5 p-6 overflow-hidden hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] transition-all duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <span class="material-symbols-outlined text-accent mb-4 text-4xl relative z-10 group-hover:scale-110 transition-transform inline-block">database</span>
+                    <h4 class="text-lg font-bold mb-2 text-white relative z-10">Análisis de Datos</h4>
+                    <p class="text-sm text-slate-400 relative z-10">Modelos predictivos para anticiparse a las tendencias del mercado.</p>
                 </div>
-                <div
-                    class="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">integration_instructions</span>
-                    <h4 class="text-lg font-bold mb-2">Integración API</h4>
+                <div class="group relative rounded-2xl bg-slate-900/60 border border-white/5 p-6 overflow-hidden hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] transition-all duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <span class="material-symbols-outlined text-accent mb-4 text-4xl relative z-10 group-hover:scale-110 transition-transform inline-block">integration_instructions</span>
+                    <h4 class="text-lg font-bold mb-2 text-white relative z-10">Integración API</h4>
+                    <p class="text-sm text-slate-400 relative z-10">Conectamos tus sistemas actuales con las mejores IAs del mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
                     <p class="text-sm text-slate-600">Conectamos tus sistemas actuales con las mejores IAs del mercado.
                     </p>
                 </div>
@@ -205,154 +241,168 @@
         </div>
     </section>
     <!-- 4-Step Process -->
-    <section class="bg-background-dark py-24 text-white" id="proceso">
+    <section class="relative bg-slate-900 py-24 text-white" id="proceso">
+        <!-- Top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="mx-auto max-w-7xl px-6">
             <div class="text-center mb-20">
                 <h3 class="text-4xl font-black mb-4">Nuestro Proceso</h3>
                 <p class="text-slate-400">Implementación ágil en 4 sencillos pasos</p>
             </div>
             <div class="grid grid-cols-1 gap-12 md:grid-cols-4">
-                <div class="relative text-center">
+                <div class="relative text-center group cursor-default">
                     <div
-                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-3xl font-black">
+                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-slate-700 text-slate-300 group-hover:bg-accent group-hover:border-accent group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/40 transition-all duration-300">
                         1</div>
-                    <h4 class="text-xl font-bold mb-2">Auditoría</h4>
-                    <p class="text-sm text-slate-400">Analizamos tus procesos actuales y detectamos cuellos de botella.
-                    </p>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">Auditoría</h4>
+                    <p class="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">Analizamos tus procesos actuales y detectamos cuellos de botella.</p>
                 </div>
-                <div class="relative text-center">
+                <div class="relative text-center group cursor-default">
                     <div
-                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-primary/30">
+                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-slate-700 text-slate-300 group-hover:bg-accent group-hover:border-accent group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/40 transition-all duration-300">
                         2</div>
-                    <h4 class="text-xl font-bold mb-2">Diseño</h4>
-                    <p class="text-sm text-slate-400">Diseñamos una arquitectura de IA personalizada para tu empresa.
-                    </p>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">Diseño</h4>
+                    <p class="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">Diseñamos una arquitectura de IA personalizada para tu empresa.</p>
                 </div>
-                <div class="relative text-center">
+                <div class="relative text-center group cursor-default">
                     <div
-                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-primary/30">
+                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-slate-700 text-slate-300 group-hover:bg-accent group-hover:border-accent group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/40 transition-all duration-300">
                         3</div>
-                    <h4 class="text-xl font-bold mb-2">Despliegue</h4>
-                    <p class="text-sm text-slate-400">Implementamos la solución sin interrumpir tu operativa diaria.</p>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">Despliegue</h4>
+                    <p class="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">Implementamos la solución sin interrumpir tu operativa diaria.</p>
                 </div>
-                <div class="relative text-center">
+                <div class="relative text-center group cursor-default">
                     <div
-                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-primary/30">
+                        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 text-3xl font-black border-2 border-slate-700 text-slate-300 group-hover:bg-accent group-hover:border-accent group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/40 transition-all duration-300">
                         4</div>
-                    <h4 class="text-xl font-bold mb-2">Optimización</h4>
-                    <p class="text-sm text-slate-400">Monitoreo constante y ajustes para maximizar el retorno de
-                        inversión.</p>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">Optimización</h4>
+                    <p class="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">Monitoreo constante y ajustes para maximizar el retorno de inversión.</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Why Choose Us -->
-    <section class="py-24" id="nosotros">
+    <section class="relative py-24 bg-background-dark" id="nosotros">
+        <!-- Top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
         <div class="mx-auto max-w-7xl px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <div class="flex-1 space-y-8">
-                    <h3 class="text-4xl font-black text-slate-900 leading-tight">¿Por qué confiar en AM System AI?</h3>
+                    <h3 class="text-4xl font-black text-white leading-tight">¿Por qué confiar en AM System AI?</h3>
                     <div class="space-y-6">
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 group">
                             <div class="flex-shrink-0 mt-1">
-                                <span class="material-symbols-outlined text-accent font-bold">check_circle</span>
+                                <span class="material-symbols-outlined text-accent font-bold group-hover:scale-110 transition-transform">check_circle</span>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Experiencia Comprobada</h4>
-                                <p class="text-slate-600">Más de 50 proyectos exitosos de automatización en diversos
-                                    sectores.</p>
+                                <h4 class="font-bold text-lg text-white">Experiencia Comprobada</h4>
+                                <p class="text-slate-400">Más de 50 proyectos exitosos de automatización en diversos sectores.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 group">
                             <div class="flex-shrink-0 mt-1">
-                                <span class="material-symbols-outlined text-accent font-bold">check_circle</span>
+                                <span class="material-symbols-outlined text-accent font-bold group-hover:scale-110 transition-transform">check_circle</span>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Soporte Continuo</h4>
-                                <p class="text-slate-600">Equipo técnico dedicado con base en Sevilla, España.</p>
+                                <h4 class="font-bold text-lg text-white">Soporte Continuo</h4>
+                                <p class="text-slate-400">Equipo técnico dedicado con base en Sevilla, España.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 group">
                             <div class="flex-shrink-0 mt-1">
-                                <span class="material-symbols-outlined text-accent font-bold">check_circle</span>
+                                <span class="material-symbols-outlined text-accent font-bold group-hover:scale-110 transition-transform">check_circle</span>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Enfoque en ROI</h4>
-                                <p class="text-slate-600">Nuestras soluciones están diseñadas para pagarse solas en
-                                    menos de 6 meses.</p>
+                                <h4 class="font-bold text-lg text-white">Enfoque en ROI</h4>
+                                <p class="text-slate-400">Nuestras soluciones están diseñadas para pagarse solas en menos de 6 meses.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex-1 grid grid-cols-2 gap-4">
-                    <div class="rounded-2xl bg-primary/5 p-8 flex flex-col justify-center items-center text-center">
-                        <span class="text-4xl font-black text-primary mb-2">+40%</span>
-                        <p class="text-sm text-slate-600 font-medium">Ahorro en Operaciones</p>
+                    <div class="group rounded-2xl bg-slate-900/60 border border-white/5 p-8 flex flex-col justify-center items-center text-center hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)] transition-all duration-300">
+                        <span class="text-4xl font-black text-accent mb-2">+40%</span>
+                        <p class="text-sm text-slate-400 font-medium">Ahorro en Operaciones</p>
                     </div>
-                    <div class="mt-8 rounded-2xl bg-accent/5 p-8 flex flex-col justify-center items-center text-center">
+                    <div class="mt-8 group rounded-2xl bg-slate-900/60 border border-white/5 p-8 flex flex-col justify-center items-center text-center hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)] transition-all duration-300">
                         <span class="text-4xl font-black text-accent mb-2">24/7</span>
-                        <p class="text-sm text-slate-600 font-medium">Disponibilidad Total</p>
+                        <p class="text-sm text-slate-400 font-medium">Disponibilidad Total</p>
                     </div>
-                    <div class="rounded-2xl bg-slate-100 p-8 flex flex-col justify-center items-center text-center">
-                        <span class="text-4xl font-black text-slate-900 mb-2">100%</span>
-                        <p class="text-sm text-slate-600 font-medium">Datos Seguros</p>
+                    <div class="group rounded-2xl bg-slate-900/60 border border-white/5 p-8 flex flex-col justify-center items-center text-center hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)] transition-all duration-300">
+                        <span class="text-4xl font-black text-accent mb-2">100%</span>
+                        <p class="text-sm text-slate-400 font-medium">Datos Seguros</p>
                     </div>
-                    <div
-                        class="mt-8 rounded-2xl bg-primary/5 p-8 flex flex-col justify-center items-center text-center">
-                        <span class="text-4xl font-black text-primary mb-2">0</span>
-                        <p class="text-sm text-slate-600 font-medium">Errores Humanos</p>
+                    <div class="mt-8 group rounded-2xl bg-slate-900/60 border border-white/5 p-8 flex flex-col justify-center items-center text-center hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)] transition-all duration-300">
+                        <span class="text-4xl font-black text-accent mb-2">0</span>
+                        <p class="text-sm text-slate-400 font-medium">Errores Humanos</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Demos Section -->
-    <section class="bg-slate-50 py-24 border-t border-slate-200" id="demostraciones">
-        <div class="mx-auto max-w-7xl px-6">
+    <section class="relative bg-slate-900 py-24" id="demostraciones">
+        <!-- Top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+        <div class="mx-auto max-w-7xl px-6 relative z-10">
             <div class="mb-16 text-center">
-                <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-4">Casos Reales</h2>
-                <h3 class="text-4xl font-black text-slate-900 leading-tight">Demostraciones</h3>
-                <p class="mt-4 text-lg text-slate-600">Descubre cómo nuestros agentes pueden transformar tu negocio.</p>
+                <h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-4">Casos Reales</h2>
+                <h3 class="text-4xl font-black text-white leading-tight">Demostraciones</h3>
+                <p class="mt-4 text-lg text-slate-400">Descubre cómo nuestros agentes pueden transformar tu negocio.</p>
             </div>
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                 <!-- Agente de voz -->
-                <div class="flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="aspect-video bg-slate-900 relative overflow-hidden flex items-center justify-center group cursor-pointer" data-modal-target="videoModal">
-                        <img src="assets/images/voice_agent.png" alt="Demo Agente de Voz" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-all duration-500 group-hover:scale-105">
-                        <span class="material-symbols-outlined text-6xl text-white drop-shadow-lg relative z-10 group-hover:scale-110 transition-transform">play_circle</span>
+                <div class="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 shadow-xl hover:shadow-accent/10 hover:-translate-y-1 transition-all">
+                    <div class="aspect-video bg-slate-900 relative overflow-hidden flex items-center justify-center group cursor-pointer"
+                        data-modal-target="videoModal">
+                        <img src="assets/images/voice_agent.png" alt="Demo Agente de Voz"
+                            class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-all duration-500 group-hover:scale-105">
+                        <span
+                            class="material-symbols-outlined text-6xl text-white drop-shadow-lg relative z-10 group-hover:scale-110 transition-transform">play_circle</span>
                     </div>
                     <div class="flex flex-1 flex-col p-8">
-                        <h4 class="mb-3 text-xl font-bold text-slate-900">🎙 Agente de voz</h4>
-                        <p class="mb-6 flex-1 text-slate-600">Este agente responde llamadas automáticamente, atiende clientes y agenda citas sin intervención humana.</p>
-                        <button data-modal-target="videoModal" class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white hover:bg-primary/90 transition-colors shadow-md shadow-primary/20">
+                        <h4 class="mb-3 text-xl font-bold text-white">🎙 Agente de voz</h4>
+                        <p class="mb-6 flex-1 text-slate-400">Este agente responde llamadas automáticamente, atiende
+                            clientes y agenda citas sin intervención humana.</p>
+                        <button data-modal-target="videoModal"
+                            class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white hover:bg-primary/90 transition-colors shadow-md shadow-primary/20">
                             Escuchar demo
                         </button>
                     </div>
                 </div>
 
                 <!-- Bot tipo WhatsApp -->
-                <div class="flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="aspect-video bg-slate-900 relative overflow-hidden flex items-center justify-center group">
-                        <img src="assets/images/whatsapp_bot.png" alt="Demo Bot WhatsApp" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                <div class="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 shadow-xl hover:shadow-accent/10 hover:-translate-y-1 transition-all">
+                    <div
+                        class="aspect-video bg-slate-900 relative overflow-hidden flex items-center justify-center group">
+                        <img src="assets/images/whatsapp_bot.png" alt="Demo Bot WhatsApp"
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="flex flex-1 flex-col p-8">
-                        <h4 class="mb-3 text-xl font-bold text-slate-900">💬 Bot tipo WhatsApp</h4>
-                        <p class="mb-6 flex-1 text-slate-600">Automatiza respuestas a clientes en WhatsApp, resuelve dudas y genera ventas 24/7.</p>
-                        <button class="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 transition-colors shadow-md shadow-accent/20">
+                        <h4 class="mb-3 text-xl font-bold text-white">💬 Bot tipo WhatsApp</h4>
+                        <p class="mb-6 flex-1 text-slate-400">Automatiza respuestas a clientes en WhatsApp, resuelve
+                            dudas y genera ventas 24/7.</p>
+                        <button
+                            class="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-accent px-6 py-3 font-bold text-white hover:bg-accent/90 transition-colors shadow-md shadow-accent/20">
                             Ver demo
                         </button>
                     </div>
                 </div>
 
                 <!-- Automatización de procesos -->
-                <div class="flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="aspect-video bg-slate-900 relative overflow-hidden flex items-center justify-center group">
-                        <img src="assets/images/process_automation.png" alt="Demo Automatización de Procesos" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                <div class="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 shadow-xl hover:shadow-accent/10 hover:-translate-y-1 transition-all">
+                    <div
+                        class="aspect-video bg-slate-900 relative overflow-hidden flex items-center justify-center group">
+                        <img src="assets/images/process_automation.png" alt="Demo Automatización de Procesos"
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="flex flex-1 flex-col p-8">
-                        <h4 class="mb-3 text-xl font-bold text-slate-900">🤖 Automatización de procesos</h4>
-                        <p class="mb-6 flex-1 text-slate-600">Desde formularios hasta gestión de clientes, automatizamos tareas repetitivas para que tu negocio funcione solo.</p>
-                        <button class="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 font-bold text-white hover:bg-slate-800 transition-colors shadow-md shadow-slate-900/20">
+                        <h4 class="mb-3 text-xl font-bold text-white">🤖 Automatización de procesos</h4>
+                        <p class="mb-6 flex-1 text-slate-400">Desde formularios hasta gestión de clientes, automatizamos
+                            tareas repetitivas para que tu negocio funcione solo.</p>
+                        <button
+                        class="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 font-bold text-white hover:bg-slate-800 transition-colors shadow-md shadow-slate-900/20">
                             Ver demo
                         </button>
                     </div>
@@ -362,44 +412,136 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="mx-auto max-w-7xl px-6 py-12">
-        <div class="relative overflow-hidden rounded-3xl bg-primary px-8 py-20 text-center shadow-2xl">
-            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 opacity-20">
-                <span class="material-symbols-outlined text-[300px] text-white">rocket_launch</span>
-            </div>
-            <div class="relative z-10 mx-auto max-w-2xl">
-                <h3 class="text-3xl font-black text-white md:text-5xl">¿Quieres esto en tu negocio?</h3>
-                <p class="mt-6 text-lg text-blue-100">
-                    Empieza a automatizar y aumentar tus ingresos con inteligencia artificial.
-                </p>
-                <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <button
-                        class="rounded-xl bg-white px-8 py-4 text-base font-black text-primary hover:bg-slate-50 transition-colors shadow-lg"
-                        data-modal-target="contactModal">
-                        Habla con un Experto
-                    </button>
+    <section class="relative bg-background-dark py-32 overflow-hidden">
+        <!-- Top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+        <!-- Animated glowing blob -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
+
+        <div class="mx-auto max-w-5xl px-6 relative z-10">
+            <!-- Glassmorphism Card -->
+            <div class="group relative overflow-hidden rounded-[2.5rem] bg-slate-900/40 backdrop-blur-2xl border border-white/10 px-8 py-24 text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(34,197,94,0.15)] hover:bg-slate-900/60">
+                
+                <!-- Inner Animated Shine -->
+                <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:animate-shimmer pointer-events-none"></div>
+
+                <!-- Animated Background Icon -->
+                <div class="absolute -top-10 -right-10 -translate-y-1/4 translate-x-1/4 opacity-5 text-white transition-all duration-1000 group-hover:scale-110 group-hover:-rotate-12 group-hover:opacity-10 pointer-events-none">
+                    <span class="material-symbols-outlined text-[400px]">rocket_launch</span>
+                </div>
+                
+                <div class="relative z-20 mx-auto max-w-3xl">
+                    <div class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-4 py-2 border border-accent/20 text-sm font-bold text-accent mb-8">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                        </span>
+                        Acelera tu crecimiento
+                    </div>
+                    
+                    <h3 class="text-4xl font-black text-white md:text-6xl tracking-tight leading-tight mb-6">
+                        ¿Listo para escalar al <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">siguiente nivel</span>?
+                    </h3>
+                    
+                    <p class="mt-6 text-xl text-slate-300 md:px-12 leading-relaxed">
+                        Deja que la Inteligencia Artificial trabaje por ti 24/7. Aumenta tus ventas y recupera tu tiempo hoy mismo.
+                    </p>
+                    
+                    <div class="mt-12 flex flex-wrap justify-center gap-6">
+                        <button
+                            class="relative overflow-hidden rounded-2xl bg-accent px-10 py-5 text-lg font-black text-white hover:bg-green-500 focus:ring-4 focus:ring-accent/50 transition-all duration-300 group/btn shadow-[0_0_40px_rgba(34,197,94,0.3)] hover:shadow-[0_0_60px_rgba(34,197,94,0.5)] hover:scale-105"
+                            data-modal-target="contactModal">
+                            <span class="relative z-10 flex items-center gap-2">Iniciar Transformación <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-slate-50 pt-20 pb-10 border-t border-slate-200">
+    <footer class="bg-slate-950 pt-20 pb-10 border-t border-white/5">
         <div class="mx-auto max-w-7xl px-6">
             <div class="grid grid-cols-1 gap-12 lg:grid-cols-4 mb-16">
                 <div class="space-y-6">
                     <div class="flex items-center gap-3">
                         <img src="assets/images/FotoPerfil.png" alt="AM System AI"
                             class="h-10 w-10 sm:h-12 sm:w-12 object-cover rounded-full shadow-md" />
-                        <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 uppercase">AM System AI
+                        <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white uppercase">AM System AI
                         </h2>
                     </div>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <p class="text-slate-400 text-sm leading-relaxed">
                         Redefiniendo el futuro empresarial a través de la inteligencia artificial y la automatización
                         inteligente.
                     </p>
                     <div class="flex gap-4">
-                        <a class="h-10 w-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-primary transition-colors"
+                        <a class="h-10 w-10 flex items-center justify-center rounded-full bg-slate-900 border border-white/10 text-slate-400 hover:text-accent hover:border-accent/40 transition-all"
                             href="#">
+                            <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="h-10 w-10 flex items-center justify-center rounded-full bg-slate-900 border border-white/10 text-slate-400 hover:text-accent hover:border-accent/40 transition-all"
+                            href="#">
+                            <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+                                <path
+                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a class="hover:text-accent transition-colors" href="#">Servicios IA</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="#">Casos de Éxito</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="#">Blog de Tecnología</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="#">Precios</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contacto</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-accent text-lg">mail</span>
+                            automan.systemai@gmail.com
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-accent text-lg">location_on</span>
+                            Sevilla, España
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-accent text-lg">schedule</span>
+                            L-V: 9:00 - 18:00
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <p class="text-sm text-slate-400 mb-4">Suscríbete para recibir noticias sobre IA.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="w-full rounded-lg border border-white/10 bg-slate-900 px-4 py-2 text-sm text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent outline-none"
+                            placeholder="Tu email" type="email" />
+                        <button class="rounded-lg bg-accent px-4 py-2 text-white hover:bg-green-500 transition-colors">
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5 text-sm text-slate-500">
+                <p>© 2026 AM System AI. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-accent" href="#">Privacidad</a>
+                    <a class="hover:text-accent" href="#">Términos</a>
+                    <a class="hover:text-accent" href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
                             <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
@@ -549,8 +691,11 @@
         <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm modal-backdrop"></div>
 
         <!-- Modal Content -->
-        <div class="relative w-full max-w-4xl rounded-2xl bg-black shadow-2xl mx-4 transform transition-all scale-95 opacity-0 modal-content overflow-hidden">
-            <button class="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors close-modal bg-black/50 rounded-full p-2 flex items-center justify-center" aria-label="Cerrar video">
+        <div
+            class="relative w-full max-w-4xl rounded-2xl bg-black shadow-2xl mx-4 transform transition-all scale-95 opacity-0 modal-content overflow-hidden">
+            <button
+                class="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors close-modal bg-black/50 rounded-full p-2 flex items-center justify-center"
+                aria-label="Cerrar video">
                 <span class="material-symbols-outlined">close</span>
             </button>
             <div class="aspect-video w-full">
