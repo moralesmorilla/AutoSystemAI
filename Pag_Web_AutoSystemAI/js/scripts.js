@@ -83,7 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!modalToClose) return;
 
       body.classList.remove('modal-open');
+      
+      // Activar la animación de salida
       modalToClose.classList.remove('modal-active');
+      modalToClose.classList.add('modal-closing');
       
       // Si es el modal de video, pausar
       if (modalToClose.id === 'videoModal') {
@@ -91,7 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (video) video.pause();
       }
       
-      setTimeout(() => modalToClose.classList.add('hidden'), 300); // Wait for transition out
+      setTimeout(() => {
+        modalToClose.classList.add('hidden');
+        modalToClose.classList.remove('modal-closing');
+      }, 300); // Wait for transition out
     };
 
     closeButtons.forEach(btn => {
